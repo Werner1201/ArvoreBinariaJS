@@ -1,0 +1,26 @@
+{
+  "name": "arvore0.1",
+  "version": "1.0.0",
+  "description": "Programa para realizar funcoes de arvore",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Werner1201/ArvoreBinariaJS.git"
+  },
+  "keywords": [
+    "Arvore"
+  ],
+  "author": "Werner Romling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Werner1201/ArvoreBinariaJS/issues"
+  },
+  "homepage": "https://github.com/Werner1201/ArvoreBinariaJS#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9",
+    "utf8": "^3.0.0"
+  }
+}

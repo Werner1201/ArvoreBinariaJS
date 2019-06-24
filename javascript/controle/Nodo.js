@@ -25,3 +25,5 @@ class Nodo {
     this._dir = novoDir;
   }
 }
+
+module.exports = Nodo;

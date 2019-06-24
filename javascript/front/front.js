@@ -1,38 +1,49 @@
-/*INPUTS*/
+const leia = require('readline-sync');
 
+/*INPUTS*/
+leia.setDefaultOptions({ encoding: 'utf8' });
 function opcoes() {
-  let resp = parseInt(window.prompt("Qual operação você deseja?\n1:Inserção\n2:Remoção\n3:Busca\n4:Percorrer"));
+  console.log("Qual operação você deseja?\n1:Inserção\n2:Remoção\n3:Busca\n4:Percorrer\nDigite: ");
+  let resp = parseInt(leia.question());
   return resp;
 }
 
 function insercaoFrontInput() {
-  let num = parseInt(window.prompt("Digite o número a ser inserido:"));
+  let num = parseInt(leia.question("Digite o número a ser inserido:"));
   return num;
 }
 
 function remocaoFrontInput() {
-  let num = parseInt(window.prompt("Digite o número a ser removido:"));
+  let num = parseInt(leia.question("Digite o número a ser removido:"));
   return num;
 }
 
 function buscaFrontInput() {
-  let num = parseInt(window.prompt("Digite o número a ser buscado:"));
+  let num = parseInt(leia.question("Digite o número a ser buscado:"));
   return num;
 }
 
 function percorrerFrontInput() {
-  let tipo = parseInt(window.prompt("Qual percurso você deseja ?\n1:Pré-Ordem\n2:Pós-Ordem\n3:Ordem Simétrica."));
+  let tipo = parseInt(leia.question("Qual percurso você deseja ?\n1:Pré-Ordem\n2:Pós-Ordem\n3:Ordem Simétrica."));
   return tipo;
 }
 
 function continuar() {
-  let resp = window.prompt("Deseja realizar outra operação ?<S/N>:");
+  let resp = leia.question("Deseja realizar outra operação ?<S/N>:");
   return resp;
 }
 
+const inputsFront = {
+  opcoes: opcoes,
+  iFI: insercaoFrontInput,
+  rFI: remocaoFrontInput,
+  bFI: buscaFrontInput,
+  pFI: percorrerFrontInput,
+  continuar: continuar
+};
 
 /*OUTPUTS */
-function insercaoFrontOutput(retorno) {
+function insercaoFrontOutput(retornoControle) {
   if (retorno == false) {
     console.log("A Inserção fracassou");
   }
@@ -41,7 +52,7 @@ function insercaoFrontOutput(retorno) {
   }
 }
 
-function remocaoFrontOutput(retorno) {
+function remocaoFrontOutput(retornoControle) {
   if (retorno === null) {
     console.log("Não há elementos para remover, a Árvore está vazia");
   }
@@ -53,7 +64,7 @@ function remocaoFrontOutput(retorno) {
   }
 }
 
-function buscaFrontOutput(retorno) {
+function buscaFrontOutput(retornoControle) {
   if (retorno === null) {
     console.log("Não há elementos para Buscar, a Árvore está vazia");
   }
@@ -67,8 +78,16 @@ function buscaFrontOutput(retorno) {
 
 //Recebe o array de numeros na ordem de Percurso
 //Depois pesquisar maneira de imprimir como no exemplo
-function percorrerFrontOutput(retorno) {
+function percorrerFrontOutput(retornoControle) {
   console.log("Resultado do Percurso: ");
   console.log(retorno);
 }
 
+const outputsFront = {
+  iFO: insercaoFrontOutput,
+  rFO: remocaoFrontOutput,
+  bFO: buscaFrontOutput,
+  pFO: percorrerFrontOutput
+};
+
+module.exports = { ipF: inputsFront, oF: outputsFront };

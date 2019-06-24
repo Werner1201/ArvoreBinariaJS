@@ -1,9 +1,14 @@
+const view = require('../front/front');
+const inputs = view.ipF;
+const outputs = view.oF;
+
+
 function opcoesControle(resp) {
   switch (resp) {
-    case 1: insercaoFrontOutput(); break;
-    case 2: remocaoFrontOutput(); break;
-    case 3: buscaFrontOutput(); break;
-    case 4: percorrerFrontOutput(percorrerControle(percorrerFrontInput())); break;
+    case 1: outputs.iFO(); break;
+    case 2: outputs.rFO(); break;
+    case 3: outputs.bFO(); break;
+    case 4: outputs.pFO(percorrerControle(inputs.pFI())); break;
   }
 }
 
@@ -20,7 +25,7 @@ function controlePrograma(PrimeiraFuncaoControle, PrimeiraFuncaoFront) {
   let cond = true;
   do {
     PrimeiraFuncaoControle(PrimeiraFuncaoFront());
-    cond = continuarControle(tratamentoContinuar(continuar()));
+    cond = continuarControle(tratamentoContinuar(inputs.continuar()));
   } while (cond);
 }
 
@@ -30,6 +35,6 @@ function continuarControle(trata) {
 }
 
 function tratamentoContinuar(continuar) {
-  let trata = continuar.substring(0, 1);
+  let trata = continuar;
   return trata.toUpperCase();
 }
