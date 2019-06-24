@@ -3,33 +3,32 @@ const leia = require('readline-sync');
 /*INPUTS*/
 leia.setDefaultOptions({ encoding: 'utf8' });
 function opcoes() {
-  console.log("Qual operação você deseja?\n1:Inserção\n2:Remoção\n3:Busca\n4:Percorrer\nDigite: ");
-  let resp = parseInt(leia.question());
+  let resp = parseInt(leia.question(console.log("Qual operação você deseja?\n1:Inserção\n2:Remoção\n3:Busca\n4:Percorrer\nDigite: ")));
   return resp;
 }
 
 function insercaoFrontInput() {
-  let num = parseInt(leia.question("Digite o número a ser inserido:"));
+  let num = parseInt(leia.question(console.log("Digite o número a ser inserido:")));
   return num;
 }
 
 function remocaoFrontInput() {
-  let num = parseInt(leia.question("Digite o número a ser removido:"));
+  let num = parseInt(leia.question(console.log("Digite o número a ser removido:")));
   return num;
 }
 
 function buscaFrontInput() {
-  let num = parseInt(leia.question("Digite o número a ser buscado:"));
+  let num = parseInt(leia.question(console.log("Digite o número a ser buscado:")));
   return num;
 }
 
 function percorrerFrontInput() {
-  let tipo = parseInt(leia.question("Qual percurso você deseja ?\n1:Pré-Ordem\n2:Pós-Ordem\n3:Ordem Simétrica."));
+  let tipo = parseInt(leia.question(console.log("Qual percurso você deseja ?\n1:Pré-Ordem\n2:Pós-Ordem\n3:Ordem Simétrica.")));
   return tipo;
 }
 
 function continuar() {
-  let resp = leia.question("Deseja realizar outra operação ?<S/N>:");
+  let resp = leia.question(console.log("Deseja realizar outra operação ?<S/N>:"));
   return resp;
 }
 
